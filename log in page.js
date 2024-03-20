@@ -39,7 +39,7 @@ signInForm.addEventListener('submit', (e) => {
     if (storedPassword === password) {
       alert('Login successful!');
       
-      window.location.href="menu page.html";
+      window.location.href="Index.html";
       signInForm.reset();
     } else {
       alert('Invalid email or password');

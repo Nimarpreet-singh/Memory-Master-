@@ -5,7 +5,7 @@
   }
   
   body {
-    height: 100vh; /*viewport height*/
+    height: 100vh; 
     display: flex;
     background: black;
     flex-direction: column;
@@ -78,16 +78,7 @@
   }
   
   
-  /*
-  .button {
-    margin-bottom: 40px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-  }
-  */
+  
   
   .button {
       margin: auto;
@@ -96,6 +87,27 @@
   
   }
 
+        
   
+
+
+
+
+  .stats-container {
+    display: block;
+    position: relative;
+    top: 20%;
+    left: 10%;
+    transform: translate(-50%);
+    background: grey;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 300px;
+  }
+
+  #total-time #total-moves{
+    margin-bottom: 5px;
+  }
   
   

@@ -120,3 +120,95 @@ const movesCounter = () => {
 
 
 
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const difficultyPopup = document.getElementById("difficulty-popup");
+  const easyBtn = document.getElementById("easy-btn");
+  const mediumBtn = document.getElementById("medium-btn");
+  const hardBtn = document.getElementById("hard-btn");
+  const cardGame = document.querySelector(".card-game");
+
+  easyBtn.addEventListener("click", function() {
+    setDifficulty(6); 
+    closePopup();
+  });
+
+  mediumBtn.addEventListener("click", function() {
+    setDifficulty(8);
+    closePopup();
+  });
+
+  hardBtn.addEventListener("click", function() {
+    setDifficulty(12);
+    closePopup();
+  });
+
+  function setDifficulty(numCards) {
+    const memoryCards = document.querySelectorAll(".memory-card");
+    if (memoryCards.length > numCards) {
+      for (let i = numCards; i < memoryCards.length; i++) {
+        memoryCards[i].style.display = "none"; 
+      }
+    } else if (memoryCards.length < numCards) {
+      for (let i = memoryCards.length; i < numCards; i++) {
+        cardGame.insertAdjacentHTML('beforeend', `
+          <div class="memory-card" data-framework="h${i}">
+            <!-- Add image elements for new cards -->
+          </div>
+        `);
+      }
+    }
+  }
+
+  function closePopup() {
+    difficultyPopup.style.display = "none";
+  }
+
+  
+  difficultyPopup.style.display = "block";
+});
+
+
+
+
+
+
+
+
+function setDifficulty(difficulty) {
+  let numColumns, numRows;
+
+  switch (difficulty) {
+    case "easy":
+      numColumns = 3;
+      numRows = 2;
+      break;
+    case "medium":
+      numColumns = 4;
+      numRows = 2;
+      break;
+    case "hard":
+      numColumns = 5;
+      numRows = 5;
+      break;
+    default:
+      console.error("Invalid difficulty level");
+      return;
+  }
+
+  const memoryCards = document.querySelectorAll(".memory-card");
+  const cardGame = document.querySelector(".card-game");
+  const totalCards = numColumns * numRows;
+
+  memoryCards.forEach((card, index) => {
+    if (index < totalCards) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+
+  cardGame.style.gridTemplateColumns = `repeat(${numColumns}, 1fr)`;
+  cardGame.style.gridTemplateRows = `repeat(${numRows}, 1fr)`;
+}

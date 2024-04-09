@@ -212,3 +212,24 @@ function setDifficulty(difficulty) {
   cardGame.style.gridTemplateColumns = `repeat(${numColumns}, 1fr)`;
   cardGame.style.gridTemplateRows = `repeat(${numRows}, 1fr)`;
 }
+
+
+
+
+
+
+
+
+function checkForGameCompletion() {
+  if (matchedPairs !== totalPairs) {
+    stopTimer();
+    console.log("Game completed!");
+
+  
+    const totalTime = document.getElementById("total-time");
+    const totalMoves = document.getElementById("total-moves");
+
+    totalTime.innerHTML = `<span>Total Time:</span> ${minutes}:${seconds}`;
+    totalMoves.innerHTML = `<span>Total Moves:</span> ${movesCount+1}`;
+  }
+}

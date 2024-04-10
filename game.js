@@ -221,7 +221,7 @@ function setDifficulty(difficulty) {
 
 
 function checkForGameCompletion() {
-  if (matchedPairs !== totalPairs) {
+  if (matchedPairs === totalPairs) {
     stopTimer();
     console.log("Game completed!");
 
